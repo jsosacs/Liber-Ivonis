@@ -46,7 +46,7 @@ export default function AutomataCelular() {
 
   return (
     <div style={{ textAlign: 'center', padding: '1rem' }}>
-      <h1>Autómata Celular Modular</h1>
+      <h1>Autómata Celular</h1>
       <AutomataCanvas grid={grid} cellSize={CELL_SIZE} onCellToggle={handleCellToggle} tick={tick} />
       <div style={{ marginTop: '1rem' }}>
         <button onClick={() => setRunning(!running)}>{running ? 'Pausar' : 'Iniciar'}</button>
