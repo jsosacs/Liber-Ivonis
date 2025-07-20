@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Grid } from './engine/Grid'
 import AutomataCanvas from './components/AutomataCanvas'
 import type { Rules } from '../../common/types'
+import AppLayout from '../../components/AppLayout'
 
 const WIDTH = 50
 const HEIGHT = 50
@@ -14,7 +15,7 @@ export default function AutomataCelular() {
   const [grid] = useState(() => new Grid(WIDTH, HEIGHT, rulesBlack, colorBlack))
   const [running, setRunning] = useState(false)
   const [tick, setTick] = useState(0)
-  const [speed, setSpeed] = useState(200) // milisegundos entre pasos
+  const [speed, setSpeed] = useState(200)
 
   useEffect(() => {
     if (!running) return
@@ -45,16 +46,13 @@ export default function AutomataCelular() {
   }
 
   return (
-    <div style={{ textAlign: 'center', padding: '1rem' }}>
-      <h1>Autómata Celular</h1>
+    <AppLayout>
+      <h2>Autómata Celular</h2>
       <AutomataCanvas grid={grid} cellSize={CELL_SIZE} onCellToggle={handleCellToggle} tick={tick} />
       <div style={{ marginTop: '1rem' }}>
         <button onClick={() => setRunning(!running)}>{running ? 'Pausar' : 'Iniciar'}</button>
-        <button onClick={resetGrid} style={{ marginLeft: '1rem' }}>
-          Reiniciar
-        </button>
+        <button onClick={resetGrid} style={{ marginLeft: '1rem' }}>Reiniciar</button>
       </div>
-
       <div style={{ marginTop: '1rem' }}>
         <label htmlFor="speedRange">Velocidad: {speed} ms</label><br />
         <input
@@ -68,6 +66,6 @@ export default function AutomataCelular() {
           disabled={!running}
         />
       </div>
-    </div>
+    </AppLayout>
   )
 }
