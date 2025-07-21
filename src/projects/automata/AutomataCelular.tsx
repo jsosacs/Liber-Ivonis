@@ -3,6 +3,7 @@ import { Grid } from './engine/Grid'
 import AutomataCanvas from './components/AutomataCanvas'
 import type { Rules } from '../../common/types'
 import AppLayout from '../../components/AppLayout'
+import '../../index.css'
 
 const WIDTH = 50
 const HEIGHT = 50
@@ -48,7 +49,16 @@ export default function AutomataCelular() {
   return (
     <AppLayout>
       <h2>Autómata Celular</h2>
-      <AutomataCanvas grid={grid} cellSize={CELL_SIZE} onCellToggle={handleCellToggle} tick={tick} />
+      <div style={{ width: '100%', overflowX: 'auto', textAlign: 'center' }}>
+        <div style={{ display: 'inline-block' }}>
+          <AutomataCanvas
+            grid={grid}
+            cellSize={CELL_SIZE}
+            onCellToggle={handleCellToggle}
+            tick={tick}
+          />
+        </div>
+      </div>
       <div style={{ marginTop: '1rem' }}>
         <button onClick={() => setRunning(!running)}>{running ? 'Pausar' : 'Iniciar'}</button>
         <button onClick={resetGrid} style={{ marginLeft: '1rem' }}>Reiniciar</button>

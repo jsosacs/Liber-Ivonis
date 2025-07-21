@@ -4,7 +4,7 @@ const CELL_SIZE = 20
 const WIDTH = 20
 const HEIGHT = 20
 
-type Coord = { x: number; y: number }
+type Coord = { x: number, y: number }
 
 export default function SnakeGame() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -23,6 +23,16 @@ export default function SnakeGame() {
     setPaused(false)
     setGameOver(false)
   }
+
+  const handleMobileMove = (direction: 'up' | 'down' | 'left' | 'right') => {
+  const map: Record<string, Coord> = {
+    up: { x: 0, y: -1 },
+    down: { x: 0, y: 1 },
+    left: { x: -1, y: 0 },
+    right: { x: 1, y: 0 },
+  }
+  setDir(map[direction])
+}
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -111,8 +121,26 @@ export default function SnakeGame() {
         ref={canvasRef}
         width={CELL_SIZE * WIDTH}
         height={CELL_SIZE * HEIGHT}
-        style={{ border: '1px solid black', background: '#eee' }}
+        style={{border: '1px solid black',
+                cursor: 'pointer',
+                maxWidth: '100%',
+                height: 'auto',
+                display: 'block',
+            }}
       />
+      <div className="mobile-controls">
+        <div className="row">
+          <button onClick={() => handleMobileMove('up')}>↑</button>
+        </div>
+        <div className="row">
+          <button onClick={() => handleMobileMove('left')}>←</button>
+          <div style={{ width: '2rem' }} />
+          <button onClick={() => handleMobileMove('right')}>→</button>
+        </div>
+        <div className="row">
+          <button onClick={() => handleMobileMove('down')}>↓</button>
+        </div>
+      </div>
       <div style={{ marginTop: '1rem' }}>
         {gameOver && <p>💀 Game Over</p>}
         {!gameOver && paused && <p>⏸ Pausa</p>}

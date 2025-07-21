@@ -1,0 +1,38 @@
+.expandable-wrapper {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin: 1rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.expandable-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f2f2f2;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.expandable-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.expandable-toggle {
+  font-size: 1.2rem;
+  user-select: none;
+}
+
+.expandable-content {
+  padding: 1rem;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

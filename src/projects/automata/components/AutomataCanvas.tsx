@@ -40,12 +40,21 @@ const AutomataCanvas: React.FC<AutomataCanvasProps> = ({ grid, cellSize, onCellT
   }
 
 
-  function getMouseCoords(event: React.MouseEvent): [number, number] | [null, null] {
+  function getMouseCoords(event: React.MouseEvent | React.TouchEvent): [number, number] | [null, null] {
     const canvas = canvasRef.current
     if (!canvas) return [null, null]
+
     const rect = canvas.getBoundingClientRect()
-    const x = Math.floor((event.clientX - rect.left) / cellSize)
-    const y = Math.floor((event.clientY - rect.top) / cellSize)
+
+    const clientX = 'clientX' in event ? event.clientX : event.touches[0].clientX
+    const clientY = 'clientY' in event ? event.clientY : event.touches[0].clientY
+
+    const scaleX = canvas.width / rect.width
+    const scaleY = canvas.height / rect.height
+
+    const x = Math.floor((clientX - rect.left) * scaleX / cellSize)
+    const y = Math.floor((clientY - rect.top) * scaleY / cellSize)
+
     if (x < 0 || x >= grid.width || y < 0 || y >= grid.height) return [null, null]
     return [x, y]
   }
@@ -55,7 +64,11 @@ const AutomataCanvas: React.FC<AutomataCanvasProps> = ({ grid, cellSize, onCellT
       ref={canvasRef}
       width={grid.width * cellSize}
       height={grid.height * cellSize}
-      style={{ border: '1px solid black', cursor: 'pointer' }}
+      style={{  border: '1px solid black',
+                cursor: 'pointer',
+                maxWidth: '100%',
+                height: 'auto',
+                display: 'block',}}
       onMouseDown={e => {
         const [x, y] = getMouseCoords(e)
         if (x === null || y === null) return
