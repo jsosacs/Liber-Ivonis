@@ -21,6 +21,12 @@ a:hover {
   text-decoration: underline;
 }
 
+iframe {
+  border: none;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
 /* Layout general */
 .app-header {
   background-color: #111;

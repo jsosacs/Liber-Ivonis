@@ -31,7 +31,7 @@ export default function Proyectos() {
           </ExpandableWrapper>
 
           <ExpandableWrapper title='Aerogenerador'>
-              <iframe src="https://www.youtube.com/embed/5hk-dhpeaR4"></iframe>
+              <iframe src="https://www.youtube.com/embed/sM1K2mYO3h4"></iframe>
           </ExpandableWrapper>
 
           <ExpandableWrapper title='Hospital'>
@@ -39,15 +39,15 @@ export default function Proyectos() {
           </ExpandableWrapper>
 
           <ExpandableWrapper title='RRDE'>
-              <iframe src="https://www.youtube.com/embed/ghkNU5OhRz0"></iframe>
+              <iframe src="https://www.youtube.com/embed/tdok7fJPdVU"></iframe>
           </ExpandableWrapper>
 
           <ExpandableWrapper title='Despacho'>
-              <iframe src="https://www.youtube.com/embed/Q_JvVnc3atY"></iframe>
+              <iframe src="https://www.youtube.com/embed/KdMe8BK9_ho"></iframe>
           </ExpandableWrapper>
 
           <ExpandableWrapper title='Circuito'>
-              <iframe src="https://www.youtube.com/embed/iICeaqBSDUc"></iframe>
+              <iframe src="https://www.youtube.com/embed/uCFX4Yh1hBE"></iframe>
           </ExpandableWrapper>
 
         </ExpandableWrapper>

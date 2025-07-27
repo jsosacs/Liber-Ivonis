@@ -3,7 +3,6 @@ import { Grid } from './engine/Grid'
 import AutomataCanvas from './components/AutomataCanvas'
 import type { Rules } from '../../common/types'
 import AppLayout from '../../components/AppLayout'
-import '../../index.css'
 
 const WIDTH = 50
 const HEIGHT = 50

@@ -5,11 +5,13 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     <div className="app-layout">
       <header className="app-header">
         <h1>Liber Ivonis</h1>
+        <p>Un proyecto de Javier Sosa y Paula Díaz</p>
+        <p>Alumnos del Grado en Ingeniería Informática</p>
         <nav>
           <Link to="/">Inicio</Link>
           <Link to="/Proyectos">Proyectos</Link>
           <Link to="/Guias">Guías ULL</Link>
-          <Link to="/QuienSoy">Quién Soy</Link>
+          <Link to="/QuienesSomos">Quienes Somos</Link>
           <Link to="/Contacto">Contacto</Link>
         </nav>
       </header>

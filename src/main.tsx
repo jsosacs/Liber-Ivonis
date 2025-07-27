@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Guias from './pages/Guias'
-import QuienSoy from './pages/QuienSoy'
+import QuienesSomos from './pages/QuienesSomos'
 import Contacto from './pages/Contacto'
 import Proyectos from './pages/Proyectos'
 import AutomataCelular from './projects/automata/AutomataCelular'
@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Guias" element={<Guias />} />
-        <Route path="/QuienSoy" element={<QuienSoy />} />
+        <Route path="/QuienesSomos" element={<QuienesSomos />} />
         <Route path="/Contacto" element={<Contacto />} />
         <Route path="/Proyectos" element={<Proyectos />} />
         <Route path="/Proyectos/Automata" element={<AutomataCelular />} />
