@@ -17,6 +17,10 @@ export default function Proyectos() {
               <Link to="/Proyectos/Snake">Snake</Link>
           </ExpandableWrapper>
 
+          <ExpandableWrapper title='N-Queens'>
+            <Link to="/Proyectos/N-Queens">N-Queens</Link>
+          </ExpandableWrapper>
+
         </ExpandableWrapper>
 
 

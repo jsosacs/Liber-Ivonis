@@ -8,6 +8,7 @@ import Contacto from './pages/Contacto'
 import Proyectos from './pages/Proyectos'
 import AutomataCelular from './projects/automata/AutomataCelular'
 import Snake from './projects/snake/Snake'
+import NQueens from './projects/n-queens/N-Queens'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/Proyectos" element={<Proyectos />} />
         <Route path="/Proyectos/Automata" element={<AutomataCelular />} />
         <Route path="/Proyectos/Snake" element={<Snake />} />
+        <Route path="/Proyectos/N-Queens" element={<NQueens />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
