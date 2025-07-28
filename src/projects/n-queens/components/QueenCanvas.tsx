@@ -4,10 +4,12 @@ import { ChessBoard } from '../engine/queens';
 interface QueensCanvasProps {
   n: number
   regenerate?: number // Para forzar regeneración
+  maxWidth?: number // Ancho máximo disponible
 }
 
-const QueenCanvas: React.FC<QueensCanvasProps> = ({ n, regenerate }) => {
-  const size = Math.min(400 / n, 50); // Tamaño dinámico de casilla
+const QueenCanvas: React.FC<QueensCanvasProps> = ({ n, regenerate, maxWidth = 400 }) => {
+  // Calcular tamaño de casilla basado en el ancho disponible
+  const size = Math.min(maxWidth / n, 60); // Máximo 60px por casilla
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const [chessBoard, setChessBoard] = React.useState<ChessBoard | null>(null);
   const [queenImage, setQueenImage] = React.useState<HTMLImageElement | null>(null);
@@ -126,7 +128,7 @@ const QueenCanvas: React.FC<QueensCanvasProps> = ({ n, regenerate }) => {
         }
       });
     });
-  }, [chessBoard, n, size, queenImage]);
+  }, [chessBoard, n, size, queenImage, maxWidth]);
 
   return <canvas 
     ref={canvasRef} 
@@ -135,9 +137,12 @@ const QueenCanvas: React.FC<QueensCanvasProps> = ({ n, regenerate }) => {
     style={{
       border: '1px solid black',
       maxWidth: '100%',
+      maxHeight: '80vh', // Máximo 80% de la altura de la ventana
+      width: 'auto',
       height: 'auto',
       display: 'block',
-      margin: '0 auto'
+      margin: '0 auto',
+      objectFit: 'contain' // Mantener proporciones
     }}
   />;
 
